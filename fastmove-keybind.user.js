@@ -13,15 +13,9 @@
 (function() {
     'use strict';
 
-    document.addEventListener('keydown', (event) => {
-        if (event.key != "t" && event.key != "g") {
-            return;
-        }
+    let currentArrowIndex = null;
 
-        const forwardMode = event.key == "t";
-
-        const arrows = [ ...document.querySelectorAll(".gmnoprint > svg > path[role]") ];
-
+    const getMovementArrowIndex = (arrows, forwardMode) => {
         const relativeRotations = arrows.map(arrow => {
             const transformation = arrow.getAttribute("transform");
 
@@ -42,9 +36,31 @@
             }
         }, 0);
 
+        return closestRotationIndex;
+    };
+
+    const isRelevantKey = (key) => {
+        return (key == "t" || key == "g");
+    };
+
+    document.addEventListener('keydown', (event) => {
+        if (!isRelevantKey(event.key)) { return; }
+
+        const forwardMode = event.key == "t";
+
+        // Find the correct movement arrow and store it for later calls
+        const arrows = [ ...document.querySelectorAll(".gmnoprint > svg > path[role]") ];
+        const arrowIndex = currentArrowIndex ?? getMovementArrowIndex(arrows, forwardMode);
+        currentArrowIndex = arrowIndex;
+
         const remappedEvent = new KeyboardEvent('keydown', { key: ' ', bubbles: true });
-        arrows[closestRotationIndex].dispatchEvent(remappedEvent);
+        arrows?.[arrowIndex].dispatchEvent(remappedEvent);
 
         return false;
+    });
+
+    document.addEventListener('keyup', (event) => {
+        if (!isRelevantKey(event.key)) { return; }
+        currentArrowIndex = null;
     });
 })();
