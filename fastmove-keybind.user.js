@@ -3,7 +3,7 @@
 // @description  Customizable key remapping for the fast move mechanic
 // @version      1.0
 // @author       notsopoisonous
-// @match        https://www.geoguessr.com/game/*
+// @match        https://www.geoguessr.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=geoguessr.com
 // @require      https://openuserjs.org/src/libs/sizzle/GM_config.min.js
 // @grant        GM_getValue
@@ -83,13 +83,15 @@
 
         const forwardMode = event.key == configValues.forwardKey;
 
-        // Find the correct movement arrow and store it for later calls
         const arrows = [ ...document.querySelectorAll(".gmnoprint > svg > path[role]") ];
+        if (!arrows.length) { return; }
+
+        // Find the correct movement arrow and store it for later calls
         const arrowIndex = currentArrowIndex ?? getMovementArrowIndex(arrows, forwardMode);
         currentArrowIndex = arrowIndex;
 
         const remappedEvent = new KeyboardEvent('keydown', { key: ' ', bubbles: true });
-        arrows?.[arrowIndex].dispatchEvent(remappedEvent);
+        arrows[arrowIndex]?.dispatchEvent(remappedEvent);
 
         return false;
     });
