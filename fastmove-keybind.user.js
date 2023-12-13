@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GeoGuessr Fast Move Keybinding
 // @description  Customizable key remapping for the fast move mechanic
-// @version      1.0
+// @version      1.0.1
 // @author       notsopoisonous
 // @match        https://www.geoguessr.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=geoguessr.com
@@ -54,7 +54,7 @@
         const relativeRotations = arrows.map(arrow => {
             const transformation = arrow.getAttribute("transform");
 
-            let rotation = transformation.match(/rotate\((.*)\)/)[1];
+            let rotation = transformation.match(/rotate\((.*)\)/)?.[1] ?? 0;
             rotation = Math.abs(parseFloat(rotation));
             rotation = Math.min(rotation, 360 - rotation);
             return rotation;
