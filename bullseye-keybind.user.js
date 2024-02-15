@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GeoGuessr Bullseye Keybinding
 // @description  Customizable keybinding for adjusting the bullseye circle size
-// @version      1.0
+// @version      1.0.1
 // @author       notsopoisonous
 // @match        https://www.geoguessr.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=geoguessr.com
@@ -9,8 +9,8 @@
 // @grant        GM_getValue
 // @grant        GM_setValue
 // @grant        GM_registerMenuCommand
-// @downloadURL  https://github.com/ivyrze/geoguessr-userscripts/raw/main/fastmove-keybind.user.js
-// @updateURL    https://github.com/ivyrze/geoguessr-userscripts/raw/main/fastmove-keybind.user.js
+// @downloadURL  https://github.com/ivyrze/geoguessr-userscripts/raw/main/bullseye-keybind.user.js
+// @updateURL    https://github.com/ivyrze/geoguessr-userscripts/raw/main/bullseye-keybind.user.js
 // ==/UserScript==
 
 (async function() {
