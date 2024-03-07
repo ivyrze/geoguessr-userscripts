@@ -6,3 +6,4 @@ First, you'll need to install a userscript browser extension like [Tampermonkey]
 
 - [Fast Move Keybinding](https://github.com/ivyrze/geoguessr-userscripts/raw/main/fastmove-keybind.user.js)
 - [Bullseye Keybinding](https://github.com/ivyrze/geoguessr-userscripts/raw/main/bullseye-keybind.user.js)
+- [Team Duels Auto Lock](https://github.com/ivyrze/geoguessr-userscripts/raw/main/teamduels-autolock.user.js)
