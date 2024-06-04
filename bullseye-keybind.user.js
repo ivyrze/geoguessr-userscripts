@@ -74,7 +74,9 @@
         const { x: clientX, y: clientY } = target.getBoundingClientRect();
 
         const remappedEvent = new MouseEvent('mousedown', { clientX, clientY, bubbles: true });
+        const remappedEvent2 = new MouseEvent('mouseup', { clientX, clientY, bubbles: true });
         target.dispatchEvent(remappedEvent);
+        target.dispatchEvent(remappedEvent2);
 
         return false;
     });
