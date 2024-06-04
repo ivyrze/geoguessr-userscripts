@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GeoGuessr Bullseye Keybinding
 // @description  Customizable keybinding for adjusting the bullseye circle size
-// @version      1.0.1
+// @version      1.0.2
 // @author       notsopoisonous
 // @match        https://www.geoguessr.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=geoguessr.com
